@@ -1,5 +1,12 @@
 # Nebius Research Agent
 
+> ODSC × Nebius Hackathon submission · Challenge: *Build a research agent that brings its sources*
+
+**One-line pitch:** A CLI research agent that answers any question with a sourced, verifiable answer — every claim cites its source — for anyone who needs to trust what an AI says.
+
+- **Demo video (2–3 min):** *pending — recording after the live Nebius test run*
+- **Team:** Fngyuan ([@sawi57003-ops](https://github.com/sawi57003-ops)) — solo
+
 A research agent that turns a question into a **sourced, verifiable answer** — built for the
 [ODSC × Nebius Hackathon](https://hackathon.odsc.ai/) (Oct 28 – Nov 20, 2026).
 
@@ -81,9 +88,34 @@ Single-file agent (`research_agent.py`, stdlib + `openai` + `tavily-python`):
 No framework, no database, no server needed for the CLI. The `--web` mode is a
 stdlib `http.server` wrapper around the same pipeline.
 
+## Example
+
+*Pending — filled in from the live 5-question test run once the Nebius key is available.*
+
+**Question:** *TBD from the test suite*
+**Answer (excerpt):** *TBD — answer with [1], [2] citations*
+**Sources:** *TBD*
+
+## Failure / insufficient-evidence case
+
+When Tavily returns no usable sources, the agent answers explicitly that the evidence is
+insufficient instead of inventing an answer. When extraction fails for a source, synthesis
+falls back to search snippets and says so. A concrete failure-case run is shown in the demo
+video (question with no good sources → "insufficient evidence" answer).
+
+## Judging criteria map
+
+| Criterion | Weight | Where to look |
+|---|---|---|
+| Sourced and verifiable answers | 30% | Example above, demo 0:00–… |
+| Works end to end | 25% | Setup, demo |
+| Usefulness | 20% | What it does |
+| Agent design | 15% | Architecture |
+| Use of Token Factory and Tavily | 10% | Configuration, How it works |
+
 ## Demo
 
-<!-- demo video: 2–3 min screen recording, agent answering 2 questions -->
+<!-- demo video: 2–3 min screen recording, agent answering 2 questions + 1 failure case -->
 <!-- TODO: add demo video link after recording -->
 
 ## Test results
